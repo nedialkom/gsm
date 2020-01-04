@@ -7,6 +7,9 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-RUN ["chmod", "+x", "./entrypoint.sh"]
-EXPOSE 8080
-ENTRYPOINT ["sh", "./entrypoint.sh"]
+#RUN ["chmod", "+x", "./entrypoint.sh"]
+
+CMD ["gunicorn"  , "-c", "gconfig.py", "gsm.wsgi:application"]
+
+#EXPOSE 8080
+#ENTRYPOINT ["sh", "./entrypoint.sh"]
