@@ -20,4 +20,4 @@ else:
 "
 printf "$script" | python manage.py shell
 
-exec python manage.py runserver 0.0.0.0:8080
+exec gunicorn -c gconfig.py gsm.wsgi:application
