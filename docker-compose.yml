@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  postgresql:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: "my_password"
+      POSTGRES_USER: "my_user"
+      POSTGRES_DB: "db"
+  web:
+    build: .
+    ports:
+      - 8080:8080
+    depends_on:
+     - postgresql
